@@ -15,6 +15,11 @@ browser, or hand the dice to your AI via MCP.
 完整书写的场景（约 340 字），冷静的说明书口吻。星空 UI，四棱水晶锥（定等级）
 配六面宝石骰（定编号）。可以在浏览器里自己掷，也可以通过 MCP 把骰子交给你的 AI。
 
+**Fully bilingual** — every card is written twice, 中文 and English.
+Switch anytime with the 中/EN toggle in the top-right corner of the web UI.
+
+**完整双语**——每张卡都有中文与英文两个全文版本，网页右上角 中/EN 随时切换。
+
 ## Quick Start / 快速开始
 
 浏览器打开 [`index.html`](index.html)，完事。
