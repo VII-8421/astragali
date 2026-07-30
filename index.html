@@ -117,83 +117,57 @@ body{
   transition:background .5s;
 }
 
-/* --- pyramid d4 --- */
-.pyr-stage{width:150px;height:170px;display:flex;align-items:flex-end;justify-content:center}
-.pyr{
-  width:130px;height:150px;position:relative;
-  transform-style:preserve-3d;
-  transition:transform 2s cubic-bezier(.16,.7,.22,1);
-  animation:hoverY 4.5s ease-in-out infinite;
-}
-@keyframes hoverY{0%,100%{margin-bottom:0}50%{margin-bottom:12px}}
-.pface{
-  position:absolute;left:50%;bottom:6px;
-  width:116px;height:138px;margin-left:-58px;
-  transform-origin:50% 100%;
-  clip-path:polygon(50% 0,100% 100%,0 100%);
-  background:
-    linear-gradient(160deg,rgba(255,255,255,.28) 0%,transparent 34%),
-    linear-gradient(200deg,var(--fc2) 0%,var(--fc1) 60%,var(--fc0) 100%);
-  display:flex;align-items:flex-end;justify-content:center;
-  padding-bottom:20px;
-  backface-visibility:hidden;
-}
-.pface .rn{
-  font-family:var(--caps);font-size:26px;letter-spacing:.04em;
-  color:rgba(6,14,20,.82);
-  text-shadow:0 1px 0 rgba(255,255,255,.35);
-}
-.pface::after{
-  content:"";position:absolute;inset:0;
-  clip-path:polygon(50% 0,100% 100%,0 100%);
-  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.5) 46%,transparent 60%);
-  opacity:0;transition:opacity .4s;
-}
-.pyr.lit .pface::after{opacity:.5;animation:sheen 2.4s linear infinite}
-@keyframes sheen{
-  0%{transform:translateX(-60%)}
-  100%{transform:translateX(60%)}
-}
-.pf1{transform:rotateY(0deg)   translateZ(33px) rotateX(24deg)}
-.pf2{transform:rotateY(90deg)  translateZ(33px) rotateX(24deg)}
-.pf3{transform:rotateY(180deg) translateZ(33px) rotateX(24deg)}
-.pf4{transform:rotateY(270deg) translateZ(33px) rotateX(24deg)}
-.pbase{
-  position:absolute;left:50%;bottom:6px;
-  width:96px;height:96px;margin-left:-48px;
-  transform-origin:50% 100%;
-  transform:rotateX(-90deg) translateZ(-6px) translateY(48px);
-  background:rgba(5,10,18,.9);
-  border:1px solid rgba(255,255,255,.08);
-}
-
-/* --- cube d6 --- */
-.die{
-  width:100px;height:100px;
+/* --- crystal prisms: all dice spin like tops --- */
+.dstage{display:flex;align-items:flex-end;justify-content:center}
+.penta{
+  width:110px;height:118px;
   transform-style:preserve-3d;
   transition:transform 2s cubic-bezier(.16,.7,.22,1);
   position:relative;
   animation:hoverY2 4.5s ease-in-out infinite;
 }
 @keyframes hoverY2{0%,100%{margin-bottom:6px}50%{margin-bottom:18px}}
-.cface{
-  position:absolute;inset:0;border-radius:12px;
+.qface{
+  position:absolute;left:50%;top:0;
+  width:74px;height:118px;margin-left:-37px;
   background:
-    linear-gradient(150deg,rgba(255,255,255,.20) 0%,transparent 40%),
-    linear-gradient(180deg,#12273C 0%,#0A1626 100%);
-  border:1px solid rgba(127,255,212,.35);
-  box-shadow:
-    inset 0 0 24px -8px rgba(64,224,208,.35),
-    inset 0 0 0 1px rgba(255,255,255,.04);
+    linear-gradient(150deg,rgba(255,255,255,.22) 0%,transparent 40%),
+    linear-gradient(180deg,var(--qc2) 0%,var(--qc1) 55%,var(--qc0) 100%);
+  border:1px solid var(--qb);
+  box-shadow:inset 0 0 22px -8px var(--qg);
   display:flex;align-items:center;justify-content:center;
+  backface-visibility:hidden;
+  overflow:hidden;
 }
-.cface svg{width:64%;height:64%;color:var(--t2);filter:drop-shadow(0 0 5px var(--t2g))}
-.cf1{transform:rotateY(0deg) translateZ(50px)}
-.cf2{transform:rotateY(90deg) translateZ(50px)}
-.cf3{transform:rotateY(180deg) translateZ(50px)}
-.cf4{transform:rotateY(-90deg) translateZ(50px)}
-.cf5{transform:rotateX(90deg) translateZ(50px)}
-.cf6{transform:rotateX(-90deg) translateZ(50px)}
+.qface .rn{
+  font-family:var(--caps);font-size:30px;letter-spacing:.05em;
+  color:rgba(6,14,20,.85);
+  text-shadow:0 1px 0 rgba(255,255,255,.4);
+}
+.qface::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.5) 46%,transparent 60%);
+  opacity:0;transition:opacity .4s;
+}
+.penta.lit .qface::after{opacity:.5;animation:sheen 2.4s linear infinite}
+@keyframes sheen{
+  0%{transform:translateX(-60%)}
+  100%{transform:translateX(60%)}
+}
+.qcap{
+  position:absolute;left:50%;top:0;
+  background:rgba(5,10,18,.92);
+  border:1px solid rgba(255,255,255,.06);
+}
+.qcap.c5{
+  width:120px;height:120px;margin-left:-60px;
+  clip-path:polygon(50% 0,97.6% 34.5%,79.4% 90.5%,20.6% 90.5%,2.4% 34.5%);
+}
+.qcap.c4{
+  width:104px;height:104px;margin-left:-52px;
+}
+.qcap.top{transform:rotateX(90deg) translateZ(-4px) scale(.82)}
+.qcap.bot{transform:rotateX(90deg) translateZ(-114px) scale(.82)}
 
 .actions{margin-top:26px;display:flex;justify-content:center}
 .abtn{
@@ -400,21 +374,8 @@ body{
   to{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.4) rotate(160deg)}
 }
 @media(max-width:430px){
-  .arena{gap:30px}
-  .pyr-stage{width:126px;height:150px}
-  .pyr{width:110px;height:132px}
-  .pface{width:100px;height:120px;margin-left:-50px;transform-origin:50% 100%}
-  .pf1{transform:rotateY(0deg) translateZ(28px) rotateX(24deg)}
-  .pf2{transform:rotateY(90deg) translateZ(28px) rotateX(24deg)}
-  .pf3{transform:rotateY(180deg) translateZ(28px) rotateX(24deg)}
-  .pf4{transform:rotateY(270deg) translateZ(28px) rotateX(24deg)}
-  .die{width:86px;height:86px}
-  .cf1{transform:rotateY(0deg) translateZ(43px)}
-  .cf2{transform:rotateY(90deg) translateZ(43px)}
-  .cf3{transform:rotateY(180deg) translateZ(43px)}
-  .cf4{transform:rotateY(-90deg) translateZ(43px)}
-  .cf5{transform:rotateX(90deg) translateZ(43px)}
-  .cf6{transform:rotateX(-90deg) translateZ(43px)}
+  .arena{gap:10px}
+  .dstage{transform:scale(.74);transform-origin:50% 100%}
 }
 </style>
 
@@ -441,22 +402,19 @@ body{
 
   <div class="arena">
     <div class="diecol">
-      <div class="pyr-stage">
-        <div class="pyr" id="pyr">
-          <div class="pface pf1" data-f="1"><span class="rn">I</span></div>
-          <div class="pface pf2" data-f="2"><span class="rn">II</span></div>
-          <div class="pface pf3" data-f="3"><span class="rn">III</span></div>
-          <div class="pface pf4" data-f="4"><span class="rn">IV</span></div>
-          <div class="pbase"></div>
-        </div>
-      </div>
+      <div class="dstage"><div class="penta" id="dq0" style="--qc0:#1E6B58;--qc1:#3ABF9B;--qc2:#9FFFE3;--qb:rgba(127,255,212,.4);--qg:rgba(127,255,212,.35)"></div></div>
       <div class="podium" id="pod1" style="--pg:rgba(127,255,212,.35)"></div>
       <div class="dielabel" data-i18n="d1">Fatum &middot; 等级</div>
     </div>
     <div class="diecol">
-      <div class="die" id="d2"></div>
+      <div class="dstage"><div class="penta" id="dq1" style="--qc0:#0F5C58;--qc1:#25AFA3;--qc2:#8FF2E9;--qb:rgba(64,224,208,.4);--qg:rgba(64,224,208,.35)"></div></div>
       <div class="podium" style="--pg:rgba(64,224,208,.3)"></div>
-      <div class="dielabel" data-i18n="d2">Numerus &middot; 编号</div>
+      <div class="dielabel" data-i18n="d2">Ordo &middot; 行</div>
+    </div>
+    <div class="diecol">
+      <div class="dstage"><div class="penta" id="dq2" style="--qc0:#41307C;--qc1:#7E5CD6;--qc2:#D3BEFF;--qb:rgba(176,140,255,.4);--qg:rgba(176,140,255,.35)"></div></div>
+      <div class="podium" style="--pg:rgba(176,140,255,.3)"></div>
+      <div class="dielabel" data-i18n="d3">Columna &middot; 列</div>
     </div>
   </div>
 
@@ -585,7 +543,8 @@ let LANG="zh";
 const I18N={
   subtitle:{zh:"nox &middot; sortem iacta &middot; 掷出今夜的签",en:"nox &middot; sortem iacta &middot; cast tonight's lot"},
   d1:{zh:"Fatum &middot; 等级",en:"Fatum &middot; Tier"},
-  d2:{zh:"Numerus &middot; 编号",en:"Numerus &middot; Number"},
+  d2:{zh:"Ordo &middot; 行",en:"Ordo &middot; Row"},
+  d3:{zh:"Columna &middot; 列",en:"Columna &middot; Column"},
   "btn-draw":{zh:"掷出骰子",en:"Cast the Dice"},
   "btn-again":{zh:"再掷一次",en:"Cast Again"},
   "log-title":{zh:"Acta Noctis &middot; 今夜战绩",en:"Acta Noctis &middot; Tonight's Ledger"},
@@ -697,49 +656,55 @@ function burst(el,hex,n){
 }
 
 /* ---------- dice build ---------- */
-const pyr=document.getElementById("pyr");
-function paintPyr(tier){
+/* prisms with JS-fixed face angles — no CSS calc, nothing left to a webview's mercy */
+const RNUM=["I","II","III","IV","V"];
+function buildPrism(el,nFaces){
+  const step=360/nFaces;
+  const tz=Math.round(74/(2*Math.tan(Math.PI/nFaces)));
+  for(let i=0;i<nFaces;i++){
+    const f=document.createElement("div");
+    f.className="qface";
+    f.style.transform="rotateY("+(i*step)+"deg) translateZ("+tz+"px)";
+    f.innerHTML='<span class="rn">'+RNUM[i]+'</span>';
+    el.appendChild(f);
+  }
+  const top=document.createElement("div");top.className="qcap c"+nFaces+" top";
+  const bot=document.createElement("div");bot.className="qcap c"+nFaces+" bot";
+  el.appendChild(top);el.appendChild(bot);
+}
+const dq0=document.getElementById("dq0"),
+      dq1=document.getElementById("dq1"),
+      dq2=document.getElementById("dq2");
+buildPrism(dq0,4);buildPrism(dq1,5);buildPrism(dq2,5);
+
+function paintFatum(tier){
   const t=T[tier];
-  pyr.querySelectorAll(".pface").forEach(f=>{
-    f.style.setProperty("--fc0",t.f0);
-    f.style.setProperty("--fc1",t.f1);
-    f.style.setProperty("--fc2",t.f2);
-  });
+  dq0.style.setProperty("--qc0",t.f0);
+  dq0.style.setProperty("--qc1",t.f1);
+  dq0.style.setProperty("--qc2",t.f2);
+  dq0.style.setProperty("--qb",t.g.replace(/[\d.]+\)$/,".5)"));
+  dq0.style.setProperty("--qg",t.g);
   document.getElementById("pod1").style.setProperty("--pg",t.g);
 }
-paintPyr(1);
+paintFatum(1);
 
-const d2=document.getElementById("d2");
-function pips(n){
-  const L={1:[[50,50]],2:[[27,27],[73,73]],3:[[27,27],[50,50],[73,73]],
-  4:[[27,27],[73,27],[27,73],[73,73]],5:[[27,27],[73,27],[50,50],[27,73],[73,73]],
-  6:[[27,23],[73,23],[27,50],[73,50],[27,77],[73,77]]};
-  return '<svg viewBox="0 0 100 100">'+L[n].map(([x,y])=>'<circle cx="'+x+'" cy="'+y+'" r="7.5" fill="currentColor"/>').join("")+'</svg>';
+/* all three spin like tops: pure Y-axis, face angles baked in */
+let q0Y=0,q1Y=0,q2Y=0;
+function spinTop(el,cur,targetDeg){
+  const ny=Math.ceil((cur+720)/360)*360+targetDeg+360*(1+Math.floor(Math.random()*2));
+  el.style.transform="rotateY("+ny+"deg)";
+  return ny;
 }
-for(let i=1;i<=6;i++){
-  const f=document.createElement("div");
-  f.className="cface cf"+i;f.innerHTML=pips(i);
-  d2.appendChild(f);
-}
-const SHOW6={1:[0,0],2:[0,-90],3:[0,180],4:[0,90],5:[-90,0],6:[90,0]};
-let pyrRot=[0,0],d2Rot=[0,0];
+function spinFatum(face){ q0Y=spinTop(dq0,q0Y,-(face-1)*90); }
+function spinQ1(face){ q1Y=spinTop(dq1,q1Y,-(face-1)*72); }
+function spinQ2(face){ q2Y=spinTop(dq2,q2Y,-(face-1)*72); }
+dq0.style.transform="rotateY(0deg)";
+dq1.style.transform="rotateY(0deg)";
+dq2.style.transform="rotateY(0deg)";
 
-function spinPyr(face){
-  const targetY=-(face-1)*90;
-  const ny=Math.ceil((pyrRot[1]+720)/360)*360+targetY+360*(1+Math.floor(Math.random()*2));
-  const nx=pyrRot[0]+360*(2+Math.floor(Math.random()*2));
-  pyr.style.transform="rotateX("+nx+"deg) rotateY("+ny+"deg)";
-  pyrRot=[nx,ny];
-}
-function spinCube(face){
-  const[tx,ty]=SHOW6[face];
-  const nx=Math.ceil((d2Rot[0]+720)/360)*360+tx+360*(1+Math.floor(Math.random()*2));
-  const ny=Math.ceil((d2Rot[1]+720)/360)*360+ty+360*(1+Math.floor(Math.random()*2));
-  d2.style.transform="rotateX("+nx+"deg) rotateY("+ny+"deg)";
-  d2Rot=[nx,ny];
-}
-pyr.style.transform="rotateX(0deg) rotateY(0deg)";
-d2.style.transform="rotateX(0deg) rotateY(0deg)";
+/* tier → its 25 cards, in data order, as a 5×5 tableau */
+const BY_TIER={1:[],2:[],3:[],4:[]};
+D.forEach(x=>BY_TIER[x.t].push(x));
 
 /* ---------- tiers ---------- */
 const tiersEl=document.getElementById("tiers");
@@ -774,11 +739,13 @@ function render(x){
   const ruleBlock=isHell
     ?'<div class="warnbox"><dt>'+I18N["sec-hell"][LANG]+'</dt><dd>'+x.r[LANG]+'</dd></div>'
     :'<div class="sec"><dt>'+I18N["sec-regula"][LANG]+'</dt><dd>'+x.r[LANG]+'</dd></div>';
+  const qi=BY_TIER[x.t].indexOf(x);
+  const qRow=RNUM[Math.floor(qi/5)],qCol=RNUM[qi%5];
   slot.innerHTML=
     '<div class="card'+(isHell?' hell':'')+'" style="--ac:'+t.c+';--ag:'+t.g+'">'+
       '<i class="c-corner tl"></i><i class="c-corner tr"></i><i class="c-corner bl"></i><i class="c-corner br"></i>'+
       '<div class="c-top">'+
-        '<div class="c-num">'+I18N["no"][LANG]+String(D.indexOf(x)+1).padStart(3,"0")+'</div>'+
+        '<div class="c-num">'+I18N["no"][LANG]+String(D.indexOf(x)+1).padStart(3,"0")+' &middot; Q '+qRow+'&times;'+qCol+'</div>'+
         '<div><span class="c-tier">'+t.nm[LANG]+' &middot; '+t.rn+'</span></div>'+
         '<div class="c-name">'+x.n[LANG]+'</div>'+
         '<div class="c-latin">'+x.l+'</div>'+
@@ -820,30 +787,33 @@ function draw(){
   clearInterval(timerId);
   const btn=document.getElementById("draw");
   btn.disabled=true;
-  pyr.classList.remove("lit");
+  dq0.classList.remove("lit");dq1.classList.remove("lit");dq2.classList.remove("lit");
   const slot=document.getElementById("slot");
   const oldCard=slot.querySelector(".card");
   if(oldCard){oldCard.style.transition="opacity .3s";oldCard.style.opacity="0";setTimeout(()=>slot.innerHTML="",300);}
 
-  const pool=D.filter(x=>picked.has(x.t));
-  let x=pool[Math.floor(Math.random()*pool.length)];
-  if(cur&&pool.length>1&&x===cur) x=pool[(pool.indexOf(x)+1)%pool.length];
-
-  const idxInTier=D.filter(y=>y.t===x.t).indexOf(x);
-  const dieNum=1+(idxInTier%6);
+  /* causal chain: cast first, then the card is whatever fate says */
+  const tiersArr=[...picked];
+  const tier=tiersArr[Math.floor(Math.random()*tiersArr.length)];
+  let row=1+Math.floor(Math.random()*5);
+  let col=1+Math.floor(Math.random()*5);
+  let x=BY_TIER[tier][(row-1)*5+(col-1)];
+  if(cur&&x===cur){ col=col%5+1; x=BY_TIER[tier][(row-1)*5+(col-1)]; }
 
   hint.textContent=HINTS_ROLL[LANG][Math.floor(Math.random()*HINTS_ROLL[LANG].length)];
   hint.style.color="var(--mist-2)";
-  paintPyr(x.t);
-  spinPyr(x.t);
-  spinCube(dieNum);
+  paintFatum(tier);
+  spinFatum(tier);
+  spinQ1(row);
+  spinQ2(col);
 
   setTimeout(()=>{
     cur=x;
-    pyr.classList.add("lit");
+    dq0.classList.add("lit");dq1.classList.add("lit");dq2.classList.add("lit");
     sndChime(x.t);
-    burst(pyr,T[x.t].hex,14);
-    burst(d2,"#40E0D0",10);
+    burst(dq0,T[x.t].hex,14);
+    burst(dq1,"#40E0D0",10);
+    burst(dq2,"#B08CFF",10);
     render(x);
     history.unshift(x);
     const log=document.getElementById("log");
