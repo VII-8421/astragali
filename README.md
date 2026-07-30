@@ -10,8 +10,8 @@ Cast your lot. The dice don't lie — no rerolls.
 
 A BDSM task deck styled as ancient Roman dice divination. 100 curated cards
 across 4 tiers, each a fully-written scene (~340 chars) in cold instruction-manual
-prose. Night-sky UI with a d4 crystal pyramid + d6 gem die. Play it in your
-browser, or hand the dice to your AI via MCP.
+prose. Night-sky UI where three spinning prisms — Fatum, Ordo, Columna —
+decide your lot. Play it in your browser, or hand the dice to your AI via MCP.
 
 **Fully bilingual** — every card is written twice, 中文 and English.
 Switch anytime with the 中/EN toggle in the top-right corner of the web UI.
