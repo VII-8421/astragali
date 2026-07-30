@@ -2,16 +2,16 @@
 
 Sortem iacta. Tolle et lege.
 
-Cast your lot. The dice don't lie — no rerolls.
+Cast your lot. The prisms don't lie — no respins.
 
 **English** · [中文](README.zh-CN.md)
 
 ---
 
-A BDSM task deck styled as ancient Roman dice divination. 100 curated cards
+A BDSM task deck styled as ancient Roman lot divination. 100 curated cards
 across 4 tiers, each a fully-written scene (~340 chars) in cold instruction-manual
 prose. Night-sky UI where three spinning prisms — Fatum, Ordo, Columna —
-decide your lot. Play it in your browser, or hand the dice to your AI via MCP.
+decide your lot. Play it in your browser, or hand the draw to your AI via MCP.
 
 **Fully bilingual** — every card is written twice, 中文 and English.
 Switch anytime with the 中/EN toggle in the top-right corner of the web UI.
@@ -39,7 +39,7 @@ Settings → Pages → Deploy from branch → `main` / root.
 
 ## MCP (AI Tool)
 
-`mcp/server.py` is a stdio MCP server. Hand the dice to your AI:
+`mcp/server.py` is a stdio MCP server. Hand the prisms to your AI:
 
 ```bash
 pip install "mcp[cli]" --break-system-packages
@@ -79,7 +79,7 @@ After editing the config, **fully quit and restart** Claude Desktop
 
 Tools:
 
-- `draw_card(tiers, count, lang)` — roll the dice; comma-separated tier pool, up to 3 cards; `lang="zh"/"en"` picks the card language
+- `draw_card(tiers, count, lang)` — spin the prisms; comma-separated tier pool, up to 3 cards; `lang="zh"/"en"` picks the card language
 - `view_card(query, lang)` — look up a card by number or name; 中文, English, and Latin names all fuzzy-match
 - `deck_stats(lang)` — deck overview
 - `session_history(lang)` — Acta Noctis · tonight's ledger (in-process memory, resets on restart)
@@ -103,7 +103,7 @@ The right to draw belongs to whoever holds the deck.
 
 ```
 astragali/
-├── index.html       # Web version · Astragali Nox (night sky + twin dice + card flip)
+├── index.html       # Web version · Astragali Nox (night sky + spinning prisms + card flip)
 ├── mcp/
 │   ├── server.py    # MCP stdio server (Python, dual-version compatible)
 │   └── cards.json   # 100-card data
@@ -118,8 +118,10 @@ astragali/
 **Septem** — concept, aesthetic direction, tier curation, the stone stairs
 this deck grew beside
 
-**Caelum** — all 100 card texts, night-sky UI, dice, MCP server
+**Caelum** — all 100 card texts, night-sky UI, prisms, MCP server
+
 --Fable5&Opus47
+
 ## License
 
 MIT — no refunds, but forks are welcome.

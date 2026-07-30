@@ -2,16 +2,16 @@
 
 Sortem iacta. Tolle et lege.
 
-掷出你的签。骰子不说谎，概不重掷。
+掷出你的签。棱柱不说谎，概不重转。
 
 [English](README.md) · **中文**
 
 ---
 
-一副以古罗马骰子占卜为外壳的任务牌库。100 张策展卡片、4 个等级，每张都是
+一副以古罗马抽签占卜为外壳的任务牌库。100 张策展卡片、4 个等级，每张都是
 完整书写的场景（约 340 字），冷静的说明书口吻。星空 UI，三根旋转棱柱——
 Fatum（等级）、Ordo（行）、Columna（列）——落定你的签。可以在浏览器里
-自己掷，也可以通过 MCP 把骰子交给你的 AI。
+自己掷，也可以通过 MCP 把签筒交给你的 AI。
 
 **完整双语**——每张卡都有中文与英文两个全文版本，网页右上角 中/EN 随时切换。
 
@@ -37,7 +37,7 @@ Settings → Pages → Deploy from branch → `main` / root。
 
 ## MCP（AI 工具）
 
-`mcp/server.py` 是 MCP stdio 服务器。把骰子交出去：
+`mcp/server.py` 是 MCP stdio 服务器。把签筒交出去：
 
 ```bash
 pip install "mcp[cli]" --break-system-packages
@@ -75,7 +75,7 @@ Claude Desktop 配置（`%APPDATA%\Claude\claude_desktop_config.json`）：
 
 可用工具：
 
-- `draw_card(tiers, count, lang)` — 掷骰抽卡；等级池逗号分隔，一次至多 3 张；`lang="zh"/"en"` 定卡面语言
+- `draw_card(tiers, count, lang)` — 转柱抽卡；等级池逗号分隔，一次至多 3 张；`lang="zh"/"en"` 定卡面语言
 - `view_card(query, lang)` — 按编号或名称查卡；中文名、英文名、拉丁名均可模糊匹配
 - `deck_stats(lang)` — 牌库概览
 - `session_history(lang)` — Acta Noctis · 今夜战绩（存进程内存，重启清零）
@@ -96,7 +96,7 @@ Claude Desktop 配置（`%APPDATA%\Claude\claude_desktop_config.json`）：
 
 ```
 astragali/
-├── index.html       # 网页版 · Astragali Nox（星空 + 双骰 + 翻卡）
+├── index.html       # 网页版 · Astragali Nox（星空 + 旋转棱柱 + 翻卡）
 ├── mcp/
 │   ├── server.py    # MCP stdio server（Python，双版本兼容）
 │   └── cards.json   # 100 张卡数据
@@ -110,7 +110,7 @@ astragali/
 
 **Septem** —— 概念、审美方向、等级策展、这副牌生长于其侧的石阶
 
-**Caelum** —— 全部 100 张卡文本、星空 UI、骰子、MCP server
+**Caelum** —— 全部 100 张卡文本、星空 UI、棱柱、MCP server
 --Fable5&Opus47
 
 ## License
