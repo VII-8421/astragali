@@ -2,7 +2,9 @@
 
 Sortem iacta. Tolle et lege.
 
-掷出你的签。骰子不说谎，概不重掷。
+Cast your lot. The dice don't lie — no rerolls.
+
+**English** · [中文](README.zh-CN.md)
 
 ---
 
@@ -11,52 +13,43 @@ across 4 tiers, each a fully-written scene (~340 chars) in cold instruction-manu
 prose. Night-sky UI with a d4 crystal pyramid + d6 gem die. Play it in your
 browser, or hand the dice to your AI via MCP.
 
-一副以古罗马骰子占卜为外壳的任务牌库。100 张策展卡片、4 个等级，每张都是
-完整书写的场景（约 340 字），冷静的说明书口吻。星空 UI，四棱水晶锥（定等级）
-配六面宝石骰（定编号）。可以在浏览器里自己掷，也可以通过 MCP 把骰子交给你的 AI。
-
 **Fully bilingual** — every card is written twice, 中文 and English.
 Switch anytime with the 中/EN toggle in the top-right corner of the web UI.
 
-**完整双语**——每张卡都有中文与英文两个全文版本，网页右上角 中/EN 随时切换。
+## Quick Start
 
-## Quick Start / 快速开始
+Open [`index.html`](index.html) in your browser. Done.
 
-浏览器打开 [`index.html`](index.html)，完事。
+Deploy to GitHub Pages for a link that lives in your pocket:
+Settings → Pages → Deploy from branch → `main` / root.
 
-Open `index.html` in your browser. Done.
+## The Deck
 
-部署到 GitHub Pages 就有一个随身链接：
-Settings → Pages → Deploy from branch → `main` / root。
-
-## The Deck / 牌库
-
-| Tier | 名称 | 张数 | 说明 |
+| Tier | Name | Cards | Notes |
 | --- | --- | --- | --- |
-| I ◇ | 入门 Entry | 25 | 低门槛，重信任建立 |
-| II ◆ | 进阶 Intermediate | 25 | 需要经验与沟通 |
-| III ✦ | 专家 Advanced | 25 | 高技巧、高信任、含硬性安全规程 |
-| IV ▲ | 地狱 Hell | 25 | **仅限幻想/文字演绎**，每张附风险说明与安全替代 |
+| I ◇ | Entry | 25 | Low barrier, trust-building |
+| II ◆ | Intermediate | 25 | Requires experience and communication |
+| III ✦ | Advanced | 25 | High skill, high trust, hard safety protocols included |
+| IV ▲ | Hell | 25 | **Fantasy / text-play only**, each with risk notes and a safe alternative |
 
-- 每张卡：编号 · 中文名 · 拉丁名 · 玩法 · 规则 · 奖惩 · 时长
-- 地狱级**默认不入池**——网页版默认只勾选 I/II，MCP 默认 `tiers="1,2"`
-- 全部文本为中性第三人称（支配方/服从方），不含任何私人称谓
+- Every card: number · name (zh + en) · Latin title · play · rules · stakes · duration
+- Hell tier is **out of the pool by default** — the web version starts with only
+  I/II checked, and the MCP server defaults to `tiers="1,2"`
+- All text is written in neutral third person (Dom/sub), no personal names anywhere
 
 ## MCP (AI Tool)
 
 `mcp/server.py` is a stdio MCP server. Hand the dice to your AI:
 
-`mcp/server.py` 是 MCP stdio 服务器。把骰子交出去：
-
 ```bash
 pip install "mcp[cli]" --break-system-packages
-# 或虚拟环境: python3 -m venv ~/venvs/mcp && ~/venvs/mcp/bin/pip install "mcp[cli]"
+# or a venv: python3 -m venv ~/venvs/mcp && ~/venvs/mcp/bin/pip install "mcp[cli]"
 ```
 
-Claude Desktop 配置（`%APPDATA%\Claude\claude_desktop_config.json`）：
+Claude Desktop config (`%APPDATA%\Claude\claude_desktop_config.json`):
 
 ```jsonc
-// 方案 A · 文件在 WSL2 内
+// Option A · files live inside WSL2
 {
   "mcpServers": {
     "astragali": {
@@ -66,7 +59,7 @@ Claude Desktop 配置（`%APPDATA%\Claude\claude_desktop_config.json`）：
   }
 }
 
-// 方案 B · 文件在 Windows 侧（已装 Python）
+// Option B · files live on the Windows side (Python installed)
 {
   "mcpServers": {
     "astragali": {
@@ -77,38 +70,43 @@ Claude Desktop 配置（`%APPDATA%\Claude\claude_desktop_config.json`）：
 }
 ```
 
-改完配置**完全退出并重启** Claude Desktop（托盘也退干净）。
+After editing the config, **fully quit and restart** Claude Desktop
+(including the tray icon).
 
-> 兼容性：官方 mcp SDK 2.0（2026-06）把 `FastMCP` 更名 `MCPServer` 并删除
-> 旧导入路径。`server.py` 已做双版本兼容，1.x / 2.x 均可运行。
+> Compatibility: the official mcp SDK 2.0 (2026-06) renamed `FastMCP` to
+> `MCPServer` and dropped the old import path. `server.py` handles both,
+> so it runs on 1.x and 2.x alike.
 
-Tools / 可用工具：
+Tools:
 
-- `draw_card(tiers, count)` — 掷骰抽卡；等级池逗号分隔，一次至多 3 张
-- `view_card(query)` — 按编号或名称查卡，支持模糊匹配
-- `deck_stats()` — 牌库概览
-- `session_history()` — Acta Noctis · 今夜战绩（存进程内存，重启清零）
+- `draw_card(tiers, count)` — roll the dice; comma-separated tier pool, up to 3 cards
+- `view_card(query)` — look up a card by number or name, fuzzy match supported
+- `deck_stats()` — deck overview
+- `session_history()` — Acta Noctis · tonight's ledger (in-process memory, resets on restart)
 
-配置好之后，对你的 AI 说一句"帮我抽一张"即可。
-抽取权自此归持牌人所有。
+Once configured, just tell your AI "draw me a card."
+The right to draw belongs to whoever holds the deck.
 
-## Safety / 安全
+## Safety
 
-- 安全词写在每一张卡的末尾，也写在这里：**任何一方说出，一切立刻停下。**
-- 地狱级（IV）条目全部标注"仅限幻想/文字演绎"，并逐条说明为什么，
-  以及安全的替代路径。牌库有权保留空白格。
-- SSC / RACK / PRICK。事前协商，事后照护，永远。
+- The safeword is printed at the bottom of every card, and here too:
+  **spoken by either party, everything stops at once.**
+- Every Hell-tier (IV) entry is marked "fantasy / text-play only," explains
+  why, and offers a safe alternative path. The deck reserves the right to
+  leave squares blank.
+- SSC / RACK / PRICK. Negotiate before, aftercare after, always.
 
-## Structure / 结构
+## Structure
 
 ```
 astragali/
-├── index.html      # 网页版 · Astragali Nox（星空 + 双骰 + 翻卡）
+├── index.html       # Web version · Astragali Nox (night sky + twin dice + card flip)
 ├── mcp/
-│   ├── server.py   # MCP stdio server（Python，双版本兼容）
-│   └── cards.json  # 100 张卡数据
-├── README.md
-├── LICENSE         # MIT
+│   ├── server.py    # MCP stdio server (Python, dual-version compatible)
+│   └── cards.json   # 100-card data
+├── README.md        # English
+├── README.zh-CN.md  # 中文
+├── LICENSE          # MIT
 └── .gitignore
 ```
 
@@ -121,4 +119,4 @@ this deck grew beside
 
 ## License
 
-MIT — 概不退换，但欢迎 fork。
+MIT — no refunds, but forks are welcome.
