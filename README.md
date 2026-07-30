@@ -79,10 +79,13 @@ After editing the config, **fully quit and restart** Claude Desktop
 
 Tools:
 
-- `draw_card(tiers, count)` — roll the dice; comma-separated tier pool, up to 3 cards
-- `view_card(query)` — look up a card by number or name, fuzzy match supported
-- `deck_stats()` — deck overview
-- `session_history()` — Acta Noctis · tonight's ledger (in-process memory, resets on restart)
+- `draw_card(tiers, count, lang)` — roll the dice; comma-separated tier pool, up to 3 cards; `lang="zh"/"en"` picks the card language
+- `view_card(query, lang)` — look up a card by number or name; 中文, English, and Latin names all fuzzy-match
+- `deck_stats(lang)` — deck overview
+- `session_history(lang)` — Acta Noctis · tonight's ledger (in-process memory, resets on restart)
+
+`cards.json` carries the full bilingual data (zh/en on every field) — the web
+version and the MCP server share the same text.
 
 Once configured, just tell your AI "draw me a card."
 The right to draw belongs to whoever holds the deck.

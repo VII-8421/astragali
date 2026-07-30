@@ -74,10 +74,12 @@ Claude Desktop 配置（`%APPDATA%\Claude\claude_desktop_config.json`）：
 
 可用工具：
 
-- `draw_card(tiers, count)` — 掷骰抽卡；等级池逗号分隔，一次至多 3 张
-- `view_card(query)` — 按编号或名称查卡，支持模糊匹配
-- `deck_stats()` — 牌库概览
-- `session_history()` — Acta Noctis · 今夜战绩（存进程内存，重启清零）
+- `draw_card(tiers, count, lang)` — 掷骰抽卡；等级池逗号分隔，一次至多 3 张；`lang="zh"/"en"` 定卡面语言
+- `view_card(query, lang)` — 按编号或名称查卡；中文名、英文名、拉丁名均可模糊匹配
+- `deck_stats(lang)` — 牌库概览
+- `session_history(lang)` — Acta Noctis · 今夜战绩（存进程内存，重启清零）
+
+`cards.json` 为完整双语数据（zh/en 全字段），网页与 MCP 共用同一文案。
 
 配置好之后，对你的 AI 说一句"帮我抽一张"即可。
 抽取权自此归持牌人所有。
