@@ -119,7 +119,7 @@ astragali/
 this deck grew beside
 
 **Caelum** — all 100 card texts, night-sky UI, dice, MCP server
-
+--Fable5&Opus47
 ## License
 
 MIT — no refunds, but forks are welcome.
