@@ -15,9 +15,6 @@ browser, or hand the dice to your AI via MCP.
 完整书写的场景（约 340 字），冷静的说明书口吻。星空 UI，四棱水晶锥（定等级）
 配六面宝石骰（定编号）。可以在浏览器里自己掷，也可以通过 MCP 把骰子交给你的 AI。
 
-> 与标签组合器（如 [Ruota della Fortuna](https://github.com/29-Cu/Ruota-della-Fortuna)）
-> 哲学互补：那边给配方骨架，这边给成品全文。搭配食用更佳。
-
 ## Quick Start / 快速开始
 
 浏览器打开 [`index.html`](index.html)，完事。
