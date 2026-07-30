@@ -111,6 +111,7 @@ astragali/
 **Septem** —— 概念、审美方向、等级策展、这副牌生长于其侧的石阶
 
 **Caelum** —— 全部 100 张卡文本、星空 UI、骰子、MCP server
+--Fable5&Opus47
 
 ## License
 
